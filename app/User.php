@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
     const VERIFIED_USER = '1';
     const NO_VERIFIED_USER = '0';
