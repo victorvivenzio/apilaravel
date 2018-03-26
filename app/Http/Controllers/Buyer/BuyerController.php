@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Buyer;
 
 use App\Buyer;
-use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
 class BuyerController extends ApiController
@@ -23,7 +22,7 @@ class BuyerController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Buyer $buyer
      * @return \Illuminate\Http\Response
      */
     public function show(Buyer $buyer)
