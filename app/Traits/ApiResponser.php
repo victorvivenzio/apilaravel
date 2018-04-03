@@ -22,10 +22,14 @@ trait ApiResponser
 		return $this->successResponse(['data' => $colletion], $code);
 	}
 
-	protected function showOne(Model $instance, $code = 200)
-	{
-		return $this->successResponse(['data' => $instance], $code);
-	}
+    protected function showOne(Model $instance, $code = 200)
+    {
+        return $this->successResponse(['data' => $instance], $code);
+    }
 
-
+    protected function showMessage(String $message, $code = 200)
+    {
+        return $this->successResponse(['data' => $message], $code);
+    }
+    
 }
