@@ -27,7 +27,7 @@ class UserTransformer extends TransformerAbstract
         ];
     }
 
-    public static function originalName($index)
+    public static function originalAttribute($index)
     {
         $attributes = [
             'identifier' => 'id',
