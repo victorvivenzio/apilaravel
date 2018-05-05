@@ -36,7 +36,6 @@ class TransformInput
 
             $response->setData($data);
         }
-
         return $response;
     }
 }
