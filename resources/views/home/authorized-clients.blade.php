@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <authorized-clients></authorized-clients>
+            <passport-authorized-clients></passport-authorized-clients>
         </div>
     </div>
 @endsection
