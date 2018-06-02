@@ -17,7 +17,10 @@ class UserController extends ApiController
         $this->middleware('client.credentials')->only(['store','resend']);
         $this->middleware('auth:api')->except(['store','resend', 'verify']);
         $this->middleware('transform.input:'. UserTransformer::class )->only(['store','update']);
-        $this->middleware('scope:manage-products')->only(['show','update']);
+        $this->middleware('scope:manage-account')->only(['show','update']);
+        $this->middleware('can:view,user')->only('show');
+        $this->middleware('can:update,user')->only('update');
+        $this->middleware('can:delete,user')->only('destroy');
     }
 
     /**
@@ -27,6 +30,7 @@ class UserController extends ApiController
      */
     public function index()
     {
+        $this->allowedAdminAction();
         $users = User::all();
 
         return $this->showAll($users);
@@ -103,6 +107,7 @@ class UserController extends ApiController
         }
 
         if ( $request->has('admin') ) {
+            $this->allowedAdminAction();
             if (!$user->isVerified()) {
                 return $this->errorsResponse('Not Verified User cannot change the admin value', 409);
             }

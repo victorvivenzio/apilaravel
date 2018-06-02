@@ -69,7 +69,7 @@ class User extends Authenticatable
         return $this->verified == User::VERIFIED_USER;
     }
 
-    protected function isAdmin()
+    public function isAdmin()
     {
         return $this->admin == User::ADMIN_USER;
     }
